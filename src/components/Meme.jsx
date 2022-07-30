@@ -4,7 +4,7 @@ import {useState, useEffect} from 'react';
 
 
 function Meme({meme, setMeme}) {
-  {console.log(meme)}
+  // {console.log(meme)}
   const [form, setform] = useState({
     template_id:meme.id,
     username:"jappan111",
@@ -13,16 +13,16 @@ function Meme({meme, setMeme}) {
   });
   const data = [];
   const generateMeme = () => {
-    console.log(form);
+    // console.log(form);
     let url = `https://api.imgflip.com/caption_image?template_id=${form.template_id}&username=${form.username}&password=${form.password}`;
     form.boxes.map((box, index) => {
       url += `&boxes[${index}][text]=${box.text}`      
     });
-    console.log(url)
+    // console.log(url)
     fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data.data.url) ;
+      // console.log(data.data.url) ;
       setMeme({...meme, url: data.data.url})
     }
    ); 

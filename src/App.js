@@ -13,7 +13,7 @@ function App() {
            .then(res => res.json())
            .then((data) => {
             setTemplate(data.data.memes);
-            console.log(data)
+            // console.log(data)
            })
       },[]);
      
